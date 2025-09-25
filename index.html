@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RPVA Agency</title>
-  <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #1a2b49;
@@ -16,17 +16,16 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--light);
       color: var(--primary);
       scroll-behavior: smooth;
     }
 
-    /* Header */
     header {
       background-color: var(--primary);
       color: white;
-      padding: 20px 40px;
+      padding: 25px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -76,8 +75,7 @@
       .menu-toggle { display: flex; }
     }
 
-    /* Hero Section with Background */
-    .hero {
+    .rpva {
       position: relative;
       min-height: 100vh;
       display: flex;
@@ -88,40 +86,42 @@
       background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80") no-repeat center center/cover;
     }
 
-    .hero-overlay {
+    .rpva-overlay {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(26, 43, 73, 0.65); /* dark overlay */
+      background: rgba(26, 43, 73, 0.65);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 40px 20px;
     }
 
-    .hero-content {
+    .rpva-content {
       position: relative;
       max-width: 800px;
       animation: fadeInUp 1.5s ease-in-out;
     }
 
-    .hero-content img {
+    .rpva-content img {
       width: 140px;
       margin-bottom: 20px;
       animation: float 3s infinite ease-in-out;
     }
 
-    .hero-content h1 {
+    .rpva-content h1 {
+      font-family: 'Playfair Display', serif;
       font-size: 3em;
       margin-bottom: 15px;
     }
 
-    .hero-content p {
+    .rpva-content p {
+      font-family: 'Poppins', sans-serif;
       font-size: 1.3em;
       margin-bottom: 25px;
       color: #f1f1f1;
     }
 
-    .hero-content button {
+    .rpva-content button {
       padding: 14px 35px;
       font-size: 1.1em;
       border: none;
@@ -132,16 +132,21 @@
       transition: transform 0.3s, background-color 0.3s;
     }
 
-    .hero-content button:hover {
+    .rpva-content button:hover {
       background-color: #b8962e;
       transform: scale(1.08);
     }
 
-    /* Section General */
-    section { padding: 60px 20px; }
+    section { 
+      padding: 80px 20px; 
+      min-height: 90vh; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
     section h2 {
       text-align: center;
-      font-size: 2.2em;
+      font-size: 2.5em;
       margin-bottom: 40px;
       position: relative;
     }
@@ -157,23 +162,50 @@
 
     /* About */
     .about {
-      background: #fff;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 30px;
-      justify-content: center;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 80px 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
     }
+
     .about img {
-      width: 280px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 350px;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex-shrink: 0;
     }
-    .about-text { max-width: 600px; }
+
+    .about-text {
+    max-width: 600px;
+    flex: 1;
+    }
+
+    .about-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    }
+
     .about-text p {
-      margin-bottom: 15px;
-      line-height: 1.6;
-      color: #333;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #333;
+    font-size: 1.1em;
+    }
+
+    @media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        max-width: 100%;
+    }
     }
 
     /* Services */
@@ -260,7 +292,6 @@
     }
     .social a:hover { color: var(--accent); }
 
-    /* Footer */
     footer {
       background-color: var(--primary);
       color: white;
@@ -268,7 +299,6 @@
       padding: 20px;
     }
 
-    /* Animations */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
@@ -277,6 +307,79 @@
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode header {
+      background-color: #1e1e1e;
+    }
+
+    body.dark-mode nav {
+      background-color: #1e1e1e;
+    }
+
+    body.dark-mode nav a {
+      color: #e0e0e0;
+    }
+
+    body.dark-mode nav a:hover {
+      color: var(--accent);
+    }
+
+    body.dark-mode .rpva-overlay {
+      background: rgba(18, 18, 18, 0.75);
+    }
+
+    body.dark-mode .about {
+      background: #1e1e1e;
+    }
+
+    body.dark-mode .about-text p {
+      color: #ccc;
+    }
+
+    body.dark-mode .services {
+      background-color: #181818;
+    }
+
+    body.dark-mode .service {
+      background-color: gray;
+      color: #1a2b49;
+    }
+
+    body.dark-mode .service h3 {
+      color: white;
+    }
+
+
+    body.dark-mode .contact {
+      background: #1e1e1e;
+    }
+
+    body.dark-mode .contact input,
+    body.dark-mode .contact textarea {
+      background-color: #2a2a2a;
+      color: #fff;
+      border-color: #444;
+    }
+
+    body.dark-mode .contact button {
+      background: var(--accent);
+      color: white;
+    }
+
+    body.dark-mode .social a {
+      color: #e0e0e0;
+    }
+
+    body.dark-mode footer {
+      background-color: #1e1e1e;
+    }
+
   </style>
 </head>
 <body>
@@ -284,21 +387,29 @@
   <!-- Header -->
   <header>
     <img src="RPVA-logoname.png" alt="RPVA Agency Logo">
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
+
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        </nav>
+
+        <button id="darkModeToggle" aria-label="Toggle Dark Mode" style="background: none; border: none; color: white; font-size: 1.2em; cursor: pointer;">
+        <i class="fas fa-moon"></i>
+        </button>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+        </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-overlay">
-      <div class="hero-content">
+
+  <section class="rpva" id="home">
+    <div class="rpva-overlay">
+      <div class="rpva-content">
         <img src="RPVA-logo.png" alt="RPVA Logo">
         <h1>Welcome to RPVA Agency</h1>
         <p>The Key to Smarter Business Support</p>
@@ -307,17 +418,18 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about" id="about">
+    <!-- About -->
+    <section class="about" id="about">
     <img src="RPVA-Agency.png" alt="About RPVA">
     <div class="about-text">
-      <h2>About Us</h2>
-      <p>At RPVA Agency, we believe in smarter business support. We provide expert solutions that empower entrepreneurs, startups, and established businesses to achieve efficiency and growth.</p>
-      <p>Our team of professionals is committed to delivering top-quality business consulting, reliable virtual assistance, and innovative marketing solutions tailored to your unique needs.</p>
+        <h2>About Us</h2>
+        <p>At RPVA Agency, we believe in smarter business support. We provide expert solutions that empower entrepreneurs, startups, and established businesses to achieve efficiency and growth.</p>
+        <p>Our team of professionals is committed to delivering top-quality business consulting, reliable virtual assistance, and innovative marketing solutions tailored to your unique needs.</p>
     </div>
-  </section>
+    </section>
 
-  <!-- Services Section -->
+
+  <!-- Services -->
   <section class="services" id="services">
     <h2>Our Services</h2>
     <div class="service-boxes">
@@ -336,11 +448,10 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
     <div class="contact-wrapper">
-      <!-- Contact Form -->
       <form onsubmit="sendMessage(event)">
         <input type="text" id="name" placeholder="Your Name" required>
         <input type="email" id="email" placeholder="Your Email" required>
@@ -349,7 +460,6 @@
         <p id="formMessage" style="margin-top:10px; color:green; display:none;">Thank you! Your message has been sent.</p>
       </form>
 
-      <!-- Google Maps -->
       <div class="map">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.743082731083!2d121.0449796745227!3d14.62868227641339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b7b5d2e6d56b%3A0x6e3a2d292743ffb7!2sQuezon%20City%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1706280516920!5m2!1sen!2sph" 
@@ -358,7 +468,6 @@
       </div>
     </div>
 
-    <!-- Social Media -->
     <div class="social">
       <a href="#"><i class="fab fa-facebook"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
@@ -367,37 +476,105 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 RPVA Agency | The Key to Smarter Business Support</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("active");
+  }
+
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    closeMenu(); 
+  }
+
+  function closeMenu() {
+    const nav = document.querySelector("nav");
+    if (nav.classList.contains("active")) {
+      nav.classList.remove("active");
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    document.querySelectorAll(".service").forEach(service => {
+      const rect = service.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        service.classList.add("visible");
+      }
+    });
+  });
+
+  function sendMessage(e) {
+    e.preventDefault();
+    document.getElementById("formMessage").style.display = "block";
+    e.target.reset();
+  }
+
+  // Toggle Mobile Menu
     function toggleMenu() {
-      document.querySelector("nav").classList.toggle("active");
+    document.querySelector("nav").classList.toggle("active");
     }
 
     function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    closeMenu(); 
     }
 
-    // Reveal on scroll effect for services
-    window.addEventListener("scroll", () => {
-      document.querySelectorAll(".service").forEach(service => {
-        const rect = service.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          service.classList.add("visible");
-        }
-      });
+    function closeMenu() {
+    const nav = document.querySelector("nav");
+    if (nav.classList.contains("active")) {
+        nav.classList.remove("active");
+    }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", closeMenu);
     });
 
-    // Contact form handler
+    // Dark mode toggle
+    const toggle = document.getElementById("darkModeToggle");
+    const icon = toggle.querySelector("i");
+
+    toggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        icon.classList.toggle("fa-moon", !isDark);
+        icon.classList.toggle("fa-sun", isDark);
+        localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+    });
+
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+    }
+    });
+
+    window.addEventListener("scroll", () => {
+    document.querySelectorAll(".service").forEach(service => {
+        const rect = service.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+        service.classList.add("visible");
+        }
+    });
+    });
+
     function sendMessage(e) {
       e.preventDefault();
       document.getElementById("formMessage").style.display = "block";
       e.target.reset();
     }
-  </script>
+
+</script>
+
 </body>
 </html>
